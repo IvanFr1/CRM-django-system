@@ -10,7 +10,7 @@ class Contract(models.Model):
     file = models.FileField(upload_to='files/')
     start_date = models.DateField()
     end_date = models.DateField()
-    price = models.DecimalField(max_digits=10, decimal_places=2)
+    cost = models.DecimalField(max_digits=10, decimal_places=2)
 
 
     def __str__(self) -> str:

@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.db.models import Count, Sum, ExpressionWrapper, DecimalField, F
 from django.views.generic import (
     CreateView, ListView, DetailView, DeleteView, UpdateView
     )
@@ -42,3 +43,25 @@ class AdvertiseUpdateView(UpdateView):
     fields = ['name', 'ads_service', 'promote_chanel', 'budget']
     template_name = 'ads_company_app/ads-edit.html'
     success_url = reverse_lazy('ads_company_app:ads_list')
+
+
+class StatisticListView(ListView):
+
+    model = Advertise
+    template_name = 'ads_company_app/ads-statistic.html'
+    context_object_name = 'ads'
+
+    def get_queryset(self):
+
+        queryset = Advertise.objects.annotate(
+            leads_count = Count('leads'),
+            customers_count = Count('leads__customer'),
+            total = F('leads__customer__contract__cost'),
+            ads_budget = F('budget'),
+            profit = ExpressionWrapper(F('total') - F('ads_budget'),
+            output_field=DecimalField(max_digits=10,decimal_places=2)
+            ),
+        )
+
+        return queryset
+    

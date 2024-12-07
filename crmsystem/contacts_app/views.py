@@ -23,7 +23,7 @@ class ContractCreateView(CreateView):
         'file', 
         'start_date', 
         'end_date',
-        'price',
+        'cost',
         ]
     template_name = 'contacts_app/contracts-create.html'
     success_url = reverse_lazy('contacts_app:contracts_list')
@@ -52,7 +52,7 @@ class ContractUpdateView(UpdateView):
         'file', 
         'start_date', 
         'end_date',
-        'price',
+        'cost',
         ]
     template_name = 'contacts_app/contracts-edit.html'
     success_url = reverse_lazy('contacts_app:contracts_list')
