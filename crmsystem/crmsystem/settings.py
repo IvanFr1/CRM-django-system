@@ -40,6 +40,10 @@ INSTALLED_APPS = [
 
     'auth_users',
     'services_app',
+    'ads_company_app',
+    'potential_customers_app',
+    'contacts_app',
+    'active_customers_app',
 ]
 
 MIDDLEWARE = [
@@ -137,3 +141,6 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     BASE_DIR / 'static',
 ]
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'

@@ -21,8 +21,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('auth_users.urls')),
     path('products/', include('services_app.urls')),
-    # path('ads/', include('ads_company_app.urls')),
-    # path('leads/', include('potential_customers_app.urls')),
-    # path('contracts/', include('contracts_app.urls')),
-    # path('customers/', include('active_customers_app.urls')),
+    path('ads/', include('ads_company_app.urls')),
+    path('leads/', include('potential_customers_app.urls')),
+    path('contracts/', include('contacts_app.urls')),
+    path('customers/', include('active_customers_app.urls')),
 ]
