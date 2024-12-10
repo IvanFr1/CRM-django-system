@@ -2,19 +2,21 @@ from django.shortcuts import render
 from django.views.generic import (
     CreateView, ListView, DetailView, DeleteView, UpdateView
     )
+from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.urls import reverse_lazy
 from .models import Contract
 
 # Create your views here.
 
-class ContractListView(ListView):
+class ContractListView(PermissionRequiredMixin, ListView):
+    permission_required = 'contacts_app.view_contract'
 
     model = Contract
     template_name = 'contacts_app/contracts-list.html'
     context_object_name = 'contracts'
 
 
-class ContractCreateView(CreateView):
+class ContractCreateView(PermissionRequiredMixin, CreateView):
 
     model = Contract
     fields = [
