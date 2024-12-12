@@ -15,8 +15,8 @@ class ContractListView(PermissionRequiredMixin, ListView):
     template_name = 'contacts_app/contracts-list.html'
     context_object_name = 'contracts'
 
-
-class ContractCreateView(PermissionRequiredMixin, CreateView):
+    
+class ContractCreateView(CreateView):
 
     model = Contract
     fields = [
@@ -38,7 +38,7 @@ class ContractDetailListView(DetailView):
     context_object_name = 'contracts'
 
 
-class ContractDeleteView(DeleteView):
+class ContractDeleteView(PermissionRequiredMixin, DeleteView):
 
     model = Contract
     success_url = reverse_lazy('contacts_app:contracts_list')

@@ -2,12 +2,14 @@ from django.shortcuts import render
 from django.views.generic import (
     CreateView, ListView, DetailView, DeleteView, UpdateView
     )
+from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.urls import reverse_lazy
 from .models import Customer
 
 # Create your views here.
 
-class CustomersListView(ListView):
+class CustomersListView(PermissionRequiredMixin, ListView):
+    permission_required = 'active_customers_app.view_customer'
 
     model = Customer
     template_name = 'active_customers_app/customers-list.html'

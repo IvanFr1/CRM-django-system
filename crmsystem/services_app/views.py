@@ -2,12 +2,15 @@ from django.shortcuts import render
 from django.views.generic import (
     CreateView, ListView, DetailView, DeleteView, UpdateView
     )
+from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.urls import reverse_lazy
 from .models import Services
 
 # Create your views here.
 
-class ServiceListView(ListView):
+class ServiceListView(PermissionRequiredMixin, ListView):
+
+    permission_required = 'services_app.view_services'
 
     model = Services
     template_name = 'services_app/products-list.html'

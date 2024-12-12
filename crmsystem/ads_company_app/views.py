@@ -3,12 +3,15 @@ from django.db.models import Count, Sum, ExpressionWrapper, DecimalField, F
 from django.views.generic import (
     CreateView, ListView, DetailView, DeleteView, UpdateView
     )
+from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.urls import reverse_lazy
 from .models import Advertise
 
 # Create your views here.
 
-class AdveriseListView(ListView):
+class AdveriseListView(PermissionRequiredMixin, ListView):
+
+    permission_required = 'ads_company_app.view_advertise'
 
     model = Advertise
     template_name = 'ads_company_app/ads-list.html'
