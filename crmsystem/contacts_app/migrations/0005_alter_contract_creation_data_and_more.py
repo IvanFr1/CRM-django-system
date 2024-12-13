@@ -4,20 +4,19 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('contacts_app', '0004_alter_contract_creation_data'),
+        ("contacts_app", "0004_alter_contract_creation_data"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='contract',
-            name='creation_data',
+            model_name="contract",
+            name="creation_data",
             field=models.DateField(),
         ),
         migrations.AlterField(
-            model_name='contract',
-            name='expire_date',
+            model_name="contract",
+            name="expire_date",
             field=models.DateField(),
         ),
     ]

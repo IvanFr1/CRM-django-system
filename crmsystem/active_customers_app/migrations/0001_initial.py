@@ -5,21 +5,43 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     initial = True
 
     dependencies = [
-        ('contacts_app', '0006_rename_creation_data_contract_end_date_and_more'),
-        ('potential_customers_app', '0002_remove_leads_name_leads_first_name_leads_last_name'),
+        ("contacts_app", "0006_rename_creation_data_contract_end_date_and_more"),
+        (
+            "potential_customers_app",
+            "0002_remove_leads_name_leads_first_name_leads_last_name",
+        ),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Customer',
+            name="Customer",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('customer_contract', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='contacts_app.contract')),
-                ('customer_lead', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, to='potential_customers_app.leads')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "customer_contract",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="contacts_app.contract",
+                    ),
+                ),
+                (
+                    "customer_lead",
+                    models.OneToOneField(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="potential_customers_app.leads",
+                    ),
+                ),
             ],
         ),
     ]

@@ -5,16 +5,19 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('ads_company_app', '0001_initial'),
-        ('potential_customers_app', '0004_alter_leads_ads_company'),
+        ("ads_company_app", "0001_initial"),
+        ("potential_customers_app", "0004_alter_leads_ads_company"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='leads',
-            name='ads_company',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='leads', to='ads_company_app.advertise'),
+            model_name="leads",
+            name="ads_company",
+            field=models.ForeignKey(
+                on_delete=django.db.models.deletion.CASCADE,
+                related_name="leads",
+                to="ads_company_app.advertise",
+            ),
         ),
     ]

@@ -4,26 +4,25 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('potential_customers_app', '0001_initial'),
+        ("potential_customers_app", "0001_initial"),
     ]
 
     operations = [
         migrations.RemoveField(
-            model_name='leads',
-            name='name',
+            model_name="leads",
+            name="name",
         ),
         migrations.AddField(
-            model_name='leads',
-            name='first_name',
+            model_name="leads",
+            name="first_name",
             field=models.CharField(default=1, max_length=50),
             preserve_default=False,
         ),
         migrations.AddField(
-            model_name='leads',
-            name='last_name',
-            field=models.CharField(default='Неизвестно', max_length=50),
+            model_name="leads",
+            name="last_name",
+            field=models.CharField(default="Неизвестно", max_length=50),
             preserve_default=False,
         ),
     ]

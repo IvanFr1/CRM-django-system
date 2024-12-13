@@ -4,20 +4,19 @@ from django.db import migrations
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('contacts_app', '0005_alter_contract_creation_data_and_more'),
+        ("contacts_app", "0005_alter_contract_creation_data_and_more"),
     ]
 
     operations = [
         migrations.RenameField(
-            model_name='contract',
-            old_name='creation_data',
-            new_name='end_date',
+            model_name="contract",
+            old_name="creation_data",
+            new_name="end_date",
         ),
         migrations.RenameField(
-            model_name='contract',
-            old_name='expire_date',
-            new_name='start_date',
+            model_name="contract",
+            old_name="expire_date",
+            new_name="start_date",
         ),
     ]

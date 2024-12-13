@@ -4,8 +4,8 @@ from django.contrib.auth import authenticate, login, logout
 from django.views import View
 # Create your views here.
 
+
 class MyLogoutView(View):
     def get(self, request):
         logout(request)
-        return redirect('auth_users:login')
-    
+        return redirect("auth_users:login")

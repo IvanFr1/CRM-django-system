@@ -5,22 +5,35 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     initial = True
 
     dependencies = [
-        ('services_app', '0002_alter_services_name'),
+        ("services_app", "0002_alter_services_name"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Advertise',
+            name="Advertise",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=100, unique=True)),
-                ('promote_chanel', models.CharField(max_length=100)),
-                ('budget', models.DecimalField(decimal_places=2, max_digits=10)),
-                ('ads_service', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='services_app.services')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(max_length=100, unique=True)),
+                ("promote_chanel", models.CharField(max_length=100)),
+                ("budget", models.DecimalField(decimal_places=2, max_digits=10)),
+                (
+                    "ads_service",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="services_app.services",
+                    ),
+                ),
             ],
         ),
     ]
